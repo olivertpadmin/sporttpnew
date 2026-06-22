@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+button, [role="button"], a {
+  cursor: pointer !important;
+}
+
+/* ── Fonts ── */
+@font-face {
+  font-family: 'Panel Sans';
+  src: url('/fonts/PanelSans-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('/fonts/Mulish-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ── Theme ── */
+@theme inline {
+  /* Brand colors */
+  --color-plg-green:       #06D373;
+  --color-plg-pink:        #F640C4;
+  --color-plg-navy:        #11002B;
+  --color-plg-green-50:    #F1FDF6;
+  --color-plg-pink-50:     #FEF1FC;
+  --color-plg-green-100:   #DDFACE;
+  --color-plg-green-600:   #1B9E5A;
+
+  /* Product accent colors */
+  --color-ticketing:       #E8A838;
+  --color-apps:            #7C5CBF;
+  --color-crm:             #2A9D8F;
+  --color-cashless:        #E76F51;
+
+  /* Fonts */
+  --font-display: 'Panel Sans', sans-serif;
+  --font-sans:    'Mulish', sans-serif;
+}
+
+/* ── Base ── */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Marker highlight - coloured background block behind key text ── */
+.highlight {
+  display: inline;
+  background-color: color-mix(in srgb, var(--product-color, #06D373) 22%, transparent);
+  padding: 2px 6px 3px;
+  border-radius: 5px;
+}
+
+/* ── All headings use Panel Sans ── */
+h1, h2, h3 {
+  font-family: 'Panel Sans', sans-serif;
+}
+
+/* ── Orbit glow animations ── */
+@keyframes pulse-ring {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50%       { opacity: 0.3;  transform: scale(1.04); }
+}
+
+@keyframes orbit-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
+@keyframes dash-flow {
+  to { stroke-dashoffset: -40; }
+}
+
+.orbit-float {
+  animation: orbit-float 4s ease-in-out infinite;
+}
+
+.orbit-float-delay-1 { animation-delay: 0.5s; }
+.orbit-float-delay-2 { animation-delay: 1s; }
+.orbit-float-delay-3 { animation-delay: 1.5s; }
+.orbit-float-delay-4 { animation-delay: 2s; }
